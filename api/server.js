@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import "dotenv/config.js";
 import authRouter from "./routes/auth.js";
 import userRouter from "./routes/users.js";
+import moviesRouter from "./routes/movie.js";
 
 const app = express();
 const port = process.env.PORT ||  8800;
@@ -21,6 +22,7 @@ mongoose.connect(
 app.use(express.json());
 app.use("/api/auth",authRouter);
 app.use("/api/users",userRouter);
+app.use("/api/movies", moviesRouter);
 
 app.listen(
    port,
